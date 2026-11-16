@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>COCOCAT – Viên xơ dừa và khay vệ sinh cho mèo</title>
+<meta name="description" content="COCOCAT: viên xơ dừa cho khay mèo và khay ô van có bệ cào thay được, có thể chuyển thành chậu hoa. Dự án đang ở giai đoạn ý tưởng và thử nghiệm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Be+Vietnam+Pro:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#ECE6D8;--bg2:#E2D9C5;--card:#FBF9F4;--ink:#1E2A22;--mute:#5B665E;--moss:#2F4A3A;--moss2:#3E5F4B;--coir:#8A6A45;--line:#CFC6B2;--on:#fff;--warn:#FFF3CF;--warnt:#5A4300;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161C18;--bg2:#1E2621;--card:#222B25;--ink:#EDE8DB;--mute:#A5AEA6;--moss:#8FB79F;--moss2:#A5C9B3;--coir:#C9A57A;--line:#38443C;--on:#10170F;--warn:#3A3112;--warnt:#F3DE9A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#161C18;--bg2:#1E2621;--card:#222B25;--ink:#EDE8DB;--mute:#A5AEA6;--moss:#8FB79F;--moss2:#A5C9B3;--coir:#C9A57A;--line:#38443C;--on:#10170F;--warn:#3A3112;--warnt:#F3DE9A;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16.5px/1.7 "Be Vietnam Pro",system-ui,sans-serif}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.2;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,6vw,4.6rem)}h2{font-size:clamp(1.8rem,3.6vw,2.7rem)}h3{font-size:1.25rem}
+a{color:inherit}p{margin:0 0 1em;max-width:62ch}
+:focus-visible{outline:3px solid var(--coir);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:22px;height:64px}
+.logo{font:600 1.6rem "Fraunces",Georgia,serif;text-decoration:none;color:var(--moss);margin-right:auto}
+nav{display:flex;gap:20px}nav a{text-decoration:none;font-size:.95rem;color:var(--mute)}nav a:hover,nav a.on{color:var(--ink)}
+.btn{display:inline-block;border:1.5px solid var(--moss);background:var(--moss);color:var(--on);padding:12px 22px;border-radius:999px;font:600 .95rem "Be Vietnam Pro",sans-serif;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--moss)}.btn.sm{padding:8px 16px;font-size:.85rem}
+.btn:hover{filter:brightness(1.1)}
+.ico{background:none;border:0;color:var(--ink);cursor:pointer;font:600 .95rem inherit;padding:8px}
+.menu{display:none}
+@media(max-width:820px){nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;padding:16px 20px;border-bottom:1px solid var(--line)}nav.open{display:flex}.menu{display:block}}
+section{padding:72px 0}
+.alt{background:var(--bg2)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:64px 0}
+@media(max-width:820px){.hero{grid-template-columns:1fr}}
+.hero .art{background:var(--bg2);border-radius:28px;aspect-ratio:1;display:grid;place-items:center;overflow:hidden}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.card .img{background:var(--bg2);aspect-ratio:4/3;display:grid;place-items:center;position:relative}
+.card .body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.price{font:600 1.15rem "Fraunces",Georgia,serif;color:var(--moss)}
+.tag{font-size:.78rem;color:var(--mute)}
+.note{background:var(--warn);color:var(--warnt);border-radius:10px;padding:10px 14px;font-size:.88rem;margin:0 0 20px;max-width:none}
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;counter-reset:s}
+.steps li{counter-increment:s;padding-top:14px;border-top:3px solid var(--coir)}
+.steps li:before{content:"Bước " counter(s);display:block;font-size:.8rem;color:var(--mute)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+label{display:block;font-size:.88rem;margin:12px 0 4px;color:var(--mute)}
+.filters{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}.filters>*{width:auto;flex:1;min-width:150px}
+table{width:100%;border-collapse:collapse;font-size:.92rem}td,th{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.scroll{overflow-x:auto}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px}.qty button{border:0;background:none;width:34px;height:34px;font-size:1.1rem;cursor:pointer;color:var(--ink)}.qty span{min-width:28px;text-align:center}
+footer{background:var(--moss);color:var(--on);padding:48px 0;font-size:.92rem}footer a{color:inherit}footer .two{gap:24px}
+.zalo{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30}
+.hp{position:absolute;left:-9999px}
+#toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:40}#toast.show{opacity:1}
+.sway{animation:sway 6s ease-in-out infinite;transform-origin:50% 90%}@keyframes sway{50%{transform:rotate(2.5deg)}}
+@media(prefers-reduced-motion:reduce){.sway{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<a class="logo" href="#home">COCOCAT</a>
+<nav id="nav"><a href="#home">Trang chủ</a><a href="#shop">Sản phẩm</a><a href="#story">Câu chuyện</a><a href="#tech">Nguyên liệu và công nghệ</a><a href="#blog">Blog</a><a href="#contact">Liên hệ</a></nav>
+<button class="ico" id="cartBtn" aria-label="Giỏ hàng">Giỏ hàng (<span id="cc">0</span>)</button>
+<button class="ico menu" id="menuBtn" aria-label="Mở menu">Menu</button>
+</div></header>
+<main id="app"></main>
+<footer><div class="wrap two">
+<div><strong>COCOCAT</strong><p>Viên xơ dừa cho khay mèo, thêm một vòng sử dụng cho khay.<br>Dự án khởi nghiệp sinh viên TDTU 2026–2027, đang ở giai đoạn ý tưởng.</p></div>
+<div><a href="#policy">Chính sách mua hàng, đổi trả, bảo mật</a><br><a href="#admin">Trang quản trị (bản thử)</a><br>Email: [chưa có] · Điện thoại: [chưa có] · Địa chỉ: [chưa có]<br>Facebook · Instagram · Zalo: [chưa có liên kết]</div>
+</div></footer>
+<a class="btn zalo" href="#contact">Chat Zalo [chưa có link]</a>
+<div id="toast" role="status"></div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const vnd=n=>n==null?"Chưa có giá":n.toLocaleString("vi-VN")+" đ";
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const SEED=[
+{id:"vien-2kg",name:"Viên xơ dừa 2 kg",cat:"Viên",price:129000,stock:50,isNew:1,hot:1,svg:"bag",desc:"Viên xơ dừa ép cho khay vệ sinh mèo, được sàng loại hạt mịn. Mục tiêu nghiên cứu: giảm bụi và kiểm soát mùi so với mẫu đối chứng.",mat:"Xơ dừa và mụn dừa; chất kết dính và chất hấp phụ: [chưa xác định]",size:"Túi 2 kg"},
+{id:"bo-khoi-dau",name:"Bộ khởi đầu: khay + bệ cào + 2 kg viên",cat:"Bộ",price:499000,stock:20,isNew:1,hot:1,svg:"tray",desc:"Khay ô van có bệ đặt chân trước, tấm cào tháo rời, nắp và móc treo, kèm 2 kg viên xơ dừa.",mat:"Thân khay: vật liệu không thấm, dễ làm sạch [chưa xác định]",size:"Kích thước khay: [chưa có]"},
+{id:"tam-cao",name:"Tấm cào thay thế",cat:"Phụ kiện",price:null,stock:0,isNew:0,hot:0,svg:"pad",desc:"Tấm cào tháo rời, đặt tách khỏi vùng chất thải để thay khi mòn.",mat:"[chưa xác định]",size:"[chưa có]"},
+{id:"bo-chau-hoa",name:"Bộ chuyển đổi chậu hoa",cat:"Phụ kiện",price:null,stock:0,isNew:0,hot:0,svg:"pot",desc:"Phụ kiện và thẻ gieo hạt để dùng khay đã làm sạch với giá thể mới làm chậu treo.",mat:"[chưa xác định]",size:"[chưa có]"}];
+const P=()=>store.get("cc_products",SEED);
+const svg=k=>{const c='stroke="currentColor" fill="none" stroke-width="3" stroke-linejoin="round"';const m={
+bag:`<path ${c} d="M40 30h80l8 100H32z"/><path ${c} d="M40 30c10-14 70-14 80 0"/><circle cx="80" cy="85" r="18" ${c}/>`,
+tray:`<ellipse cx="80" cy="95" rx="62" ry="34" ${c}/><ellipse cx="80" cy="90" rx="44" ry="20" ${c}/><path ${c} d="M110 40l24-4v26l-24 6z"/>`,
+pad:`<rect x="44" y="26" width="72" height="108" rx="10" ${c}/><path ${c} d="M60 50h40M60 70h40M60 90h40M60 110h40"/>`,
+pot:`<path ${c} d="M38 70h84l-12 62H50z"/><path ${c} d="M80 70V30M80 50c-14 0-22-8-24-18 14 0 22 6 24 18zM80 44c10 0 18-6 20-16-12 0-18 6-20 16z"/>`};
+return `<svg viewBox="0 0 160 160" width="46%" style="color:var(--moss)" role="img" aria-label="Ảnh minh họa">${m[k]}</svg>`};
+const cart={get:()=>store.get("cc_cart",{}),set(c){store.set("cc_cart",c);upd()}};
+function upd(){$("#cc").textContent=Object.values(cart.get()).reduce((a,b)=>a+b,0)}
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),1800)}
+function add(id,n=1){const p=P().find(x=>x.id==id);if(!p||p.price==null||p.stock<1){toast("Sản phẩm chưa mở bán");return}const c=cart.get();c[id]=Math.min((c[id]||0)+n,p.stock);cart.set(c);toast("Đã thêm vào giỏ hàng")}
+const pcard=p=>`<article class="card"><a class="img" href="#p/${p.id}" aria-label="${esc(p.name)}">${svg(p.svg)}</a><div class="body"><span class="tag">${esc(p.cat)} · Ảnh minh họa</span><h3>${esc(p.name)}</h3><span class="price">${vnd(p.price)}</span><span class="tag">${p.price==null?"Chưa mở bán":p.stock>0?"Còn hàng":"Hết hàng"}</span><div style="display:flex;gap:8px;margin-top:auto"><a class="btn ghost sm" href="#p/${p.id}">Xem chi tiết</a><button class="btn sm" data-add="${p.id}">Thêm vào giỏ</button></div></div></article>`;
+const DEMO='<p class="note">Giá, kích thước và tồn kho là giả định lập kế hoạch từ bản thảo dự án, chưa phải báo giá hay hàng đã sản xuất. Ảnh là hình minh họa.</p>';
+const V={
+home(){return `<div class="wrap hero"><div><h1>Viên xơ dừa cho khay mèo, thêm một vòng sử dụng cho khay.</h1><p>COCOCAT phát triển viên xơ dừa ép và khay ô van có bệ cào thay được. Sau khi làm sạch, khay có thể chuyển thành chậu treo với giá thể mới.</p><p><a class="btn" href="#shop">Khám phá sản phẩm</a> <a class="btn ghost" href="#story">Tìm hiểu câu chuyện của chúng tôi</a></p></div><div class="art"><div class="sway" style="width:70%;color:var(--moss)">${svg("tray")}</div></div></div>
+<section class="alt"><div class="wrap"><h2>Vì sao là xơ dừa</h2><p>Người nuôi mèo trong nhà phải thay vật liệu lót và giữ khay sạch thường xuyên. COCOCAT tận dụng phụ phẩm dừa làm nền vật liệu và kiểm chứng bằng thử nghiệm đối chứng thay vì tuyên bố trước.</p><p class="tag">Không khẳng định “không bụi”, “vô trùng” hay tác động môi trường vượt trội khi chưa có dữ liệu.</p></div></section>
+<section><div class="wrap"><h2>Sản phẩm</h2>${DEMO}<div class="grid">${P().slice(0,4).map(pcard).join("")}</div></div></section>
+<section class="alt"><div class="wrap"><h2>Từ xơ dừa đến viên</h2><ol class="steps"><li>Chọn xơ và mụn dừa</li><li>Làm sạch, xử lý</li><li>Điều chỉnh độ ẩm, phối trộn</li><li>Ép viên, sấy</li><li>Sàng loại hạt mịn</li><li>Đóng gói chống ẩm</li></ol></div></section>
+<section><div class="wrap"><h2>Đánh giá khách hàng</h2><p>Chưa có đánh giá. Chúng tôi chỉ đăng đánh giá thật từ người dùng thử.</p></div></section>`},
+shop(){return `<section><div class="wrap"><h1 style="font-size:2.6rem">Cửa hàng</h1>${DEMO}<div class="filters"><input id="q" type="search" placeholder="Tìm sản phẩm" aria-label="Tìm sản phẩm"><select id="fc" aria-label="Loại"><option value="">Mọi loại</option>${[...new Set(P().map(p=>p.cat))].map(c=>`<option>${esc(c)}</option>`).join("")}</select><select id="fs" aria-label="Sắp xếp"><option value="">Mặc định</option><option value="a">Giá tăng dần</option><option value="d">Giá giảm dần</option><option value="n">Mới</option><option value="h">Nổi bật</option></select></div><div class="grid" id="list"></div></div></section>`},
+product(id){const p=P().find(x=>x.id==id);if(!p)return "<section><div class=wrap><p>Không tìm thấy sản phẩm. <a href=#shop>Về cửa hàng</a></p></div></section>";const rel=P().filter(x=>x.id!=id).slice(0,3);
+return `<section><div class="wrap two"><div class="card"><div class="img" style="aspect-ratio:1">${svg(p.svg)}</div></div><div><h1 style="font-size:2.4rem">${esc(p.name)}</h1><p class="price">${vnd(p.price)}</p><p>${esc(p.desc)}</p><table><tr><th>Thành phần</th><td>${esc(p.mat)}</td></tr><tr><th>Kích thước, khối lượng</th><td>${esc(p.size)}</td></tr><tr><th>Hướng dẫn sử dụng, bảo quản</th><td>[chưa có]. Bảo quản nơi khô ráo vì viên có thể hút ẩm.</td></tr><tr><th>Lưu ý an toàn</th><td>Cho mèo làm quen dần, giữ lại khay quen thuộc; ngưng dùng nếu mèo tránh đi vệ sinh.</td></tr><tr><th>Kiểm nghiệm</th><td>Chưa có kết quả. Mục tiêu nghiên cứu: giảm ≥50% bụi và ≥30% chỉ số mùi so với đối chứng.</td></tr></table><p style="margin-top:18px"><span class="qty"><button data-q="-1">−</button><span id="qn">1</span><button data-q="1">+</button></span> <button class="btn" data-addq="${p.id}">Thêm vào giỏ</button> <button class="btn ghost" data-buy="${p.id}">Mua ngay</button></p></div></div><div class="wrap" style="margin-top:48px"><h2>Sản phẩm liên quan</h2><div class="grid">${rel.map(pcard).join("")}</div></div></section>`},
+cart(){const c=cart.get(),ps=P(),rows=Object.keys(c).map(id=>({p:ps.find(x=>x.id==id),n:c[id]})).filter(r=>r.p);const sub=rows.reduce((a,r)=>a+r.p.price*r.n,0);const d=store.get("cc_disc",0);
+return `<section><div class="wrap"><h1 style="font-size:2.6rem">Giỏ hàng</h1>${rows.length?`<div class="scroll"><table>${rows.map(r=>`<tr><td>${esc(r.p.name)}</td><td><span class="qty"><button data-ci="${r.p.id}" data-d="-1">−</button><span>${r.n}</span><button data-ci="${r.p.id}" data-d="1">+</button></span></td><td>${vnd(r.p.price*r.n)}</td><td><button class="ico" data-rm="${r.p.id}">Xóa</button></td></tr>`).join("")}</table></div><p style="margin-top:16px"><input id="code" placeholder="Mã giảm giá" style="width:200px"> <button class="btn ghost sm" id="applyc">Áp dụng</button></p><p>Tạm tính: <strong>${vnd(sub)}</strong>${d?`<br>Giảm: −${vnd(Math.round(sub*d))}`:""}<br>Phí vận chuyển: tính sau khi có dữ liệu giao hàng.</p><a class="btn ghost" href="#shop">Tiếp tục mua hàng</a> <a class="btn" href="#checkout">Tiến hành thanh toán</a>`:`<p>Giỏ hàng trống. <a href="#shop">Xem sản phẩm</a></p>`}</div></section>`},
+checkout(){const c=cart.get();if(!Object.keys(c).length)return "<section><div class=wrap><p>Giỏ hàng trống. <a href=#shop>Xem sản phẩm</a></p></div></section>";
+return `<section><div class="wrap" style="max-width:640px"><h1 style="font-size:2.6rem">Thanh toán</h1><p class="note">Bản này chưa kết nối máy chủ hay cổng thanh toán. Đơn được lưu trên trình duyệt này để thử quy trình; cần backend để nhận đơn thật.</p><form id="co"><label>Họ và tên người nhận<input name="name" required></label><label>Số điện thoại<input name="phone" required pattern="0[0-9]{9}" title="Số điện thoại 10 số, bắt đầu bằng 0"></label><label>Email<input name="email" type="email" required></label><label>Địa chỉ giao hàng<textarea name="addr" required rows="2"></textarea></label><label>Ghi chú<textarea name="note" rows="2"></textarea></label><label>Phương thức thanh toán<select name="pay"><option value="COD">Thanh toán khi nhận hàng (COD)</option><option value="BANK">Chuyển khoản ngân hàng (thông tin tài khoản: [chưa có])</option></select></label><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p style="margin-top:18px"><button class="btn" type="submit">Đặt hàng</button></p></form></div></section>`},
+story(){return `<section><div class="wrap"><h1 style="font-size:2.8rem">Câu chuyện thương hiệu</h1><p>COCOCAT bắt đầu từ ý tưởng cho cuộc thi khởi nghiệp sinh viên TDTU 2026–2027: viên xơ dừa cho khay mèo, kết hợp khay ô van có bệ cào và khả năng chuyển thành chậu hoa.</p><p>Mục tiêu là tăng giá trị sử dụng phụ phẩm dừa và giảm việc bỏ khay còn dùng được. Chúng tôi sẽ đo lượng phụ phẩm dùng, tuổi thọ khay và số khay chuyển thành chậu, chưa tuyên bố giảm phát thải.</p><p>Xơ dừa làm cát mèo đã được nghiên cứu trước đây ở quy mô nhỏ, vì vậy chúng tôi không nói đây là ý tưởng mới trên thế giới.</p><p class="tag">Nhóm thực hiện: [chưa có thông tin]</p></div></section>`},
+tech(){return `<section><div class="wrap"><h1 style="font-size:2.8rem">Nguyên liệu và công nghệ</h1><p>Xơ dừa là nền vật liệu. Khả năng hút ẩm không đồng nghĩa với khử mọi thành phần mùi, nên công thức được chọn bằng thử nghiệm đối chứng.</p><h2>Quy trình viên</h2><ol class="steps"><li>Chọn xơ, mụn dừa</li><li>Làm sạch, kiểm tra độ ẩm, pH, độ dẫn điện, nấm mốc</li><li>Phối trộn</li><li>Ép viên</li><li>Sấy</li><li>Sàng, đóng gói chống ẩm</li></ol><h2 style="margin-top:40px">Chỉ tiêu sẽ kiểm nghiệm</h2><p>Bụi, mùi (cảm quan mù mã mẫu kết hợp đo hợp chất mùi), hút nước, độ bền khi ướt, dính chân, nấm mốc, chi phí mỗi ngày dùng.</p><p class="note">Chưa có chứng nhận hay kết quả kiểm nghiệm. Hướng dẫn ủ vi sinh chất thải mèo để trồng hoa chưa được đưa vào vì chưa có dữ liệu an toàn (nguy cơ noãn nang Toxoplasma gondii).</p></div></section>`},
+blog(){return `<section><div class="wrap"><h1 style="font-size:2.8rem">Blog và kiến thức</h1><p>Chuyên mục dự kiến: chăm sóc mèo, hướng dẫn dùng sản phẩm, xơ dừa, vật liệu sinh học, nhật ký nghiên cứu. Chưa có bài viết; bài đầu sẽ đăng sau khi có dữ liệu thử nghiệm.</p></div></section>`},
+contact(){return `<section><div class="wrap" style="max-width:640px"><h1 style="font-size:2.8rem">Liên hệ</h1><p>Email, điện thoại, địa chỉ, Facebook, Instagram, Zalo: [chưa có thông tin].</p><form id="cf"><label>Họ tên<input name="n" required></label><label>Email<input name="e" type="email" required></label><label>Nội dung<textarea name="m" rows="4" required></textarea></label><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p style="margin-top:16px"><button class="btn">Gửi tin nhắn</button></p></form></div></section>`},
+policy(){return `<section><div class="wrap"><h1 style="font-size:2.6rem">Chính sách</h1><p class="note">Nội dung chính sách mua hàng, đổi trả, giao hàng và bảo mật chưa được soạn. Cần bổ sung trước khi bán thật.</p></div></section>`},
+admin(){const o=store.get("cc_orders",[]),ps=P();return `<section><div class="wrap"><h1 style="font-size:2.6rem">Quản trị (bản thử)</h1><p class="note">Chưa có đăng nhập; dữ liệu nằm trên trình duyệt này. Khi triển khai thật, cần backend và xác thực.</p><h2>Sản phẩm và tồn kho</h2><div class="scroll"><table><tr><th>Tên</th><th>Giá (đ)</th><th>Tồn</th></tr>${ps.map(p=>`<tr><td>${esc(p.name)}</td><td><input data-pf="price" data-id="${p.id}" type="number" value="${p.price??""}"></td><td><input data-pf="stock" data-id="${p.id}" type="number" value="${p.stock}"></td></tr>`).join("")}</table></div><h2 style="margin-top:36px">Đơn hàng (${o.length})</h2><div class="scroll"><table>${o.map(x=>`<tr><td>${esc(x.id)}<br>${esc(x.date)}</td><td>${esc(x.name)}<br>${esc(x.phone)}<br>${esc(x.addr)}</td><td>${esc(x.items)}<br>${vnd(x.total)} · ${esc(x.pay)}</td></tr>`).join("")||"<tr><td>Chưa có đơn.</td></tr>"}</table></div></div></section>`}};
+function route(){const h=location.hash.slice(1)||"home";let [k,a]=h.split("/");const f=k=="p"?()=>V.product(a):V[k]||V.home;$("#app").innerHTML=f();$("#nav").classList.remove("open");document.querySelectorAll("nav a").forEach(l=>l.classList.toggle("on",l.getAttribute("href")=="#"+k));window.scrollTo(0,0);if(k=="shop")list()}
+function list(){const q=($("#q").value||"").toLowerCase(),c=$("#fc").value,s=$("#fs").value;let r=P().filter(p=>(!q||p.name.toLowerCase().includes(q))&&(!c||p.cat==c));if(s=="a")r.sort((x,y)=>(x.price??1e12)-(y.price??1e12));if(s=="d")r.sort((x,y)=>(y.price??0)-(x.price??0));if(s=="n")r=r.filter(p=>p.isNew);if(s=="h")r=r.filter(p=>p.hot);$("#list").innerHTML=r.map(pcard).join("")||"<p>Không có sản phẩm phù hợp. Thử xóa bộ lọc.</p>"}
+let qn=1;
+document.addEventListener("click",e=>{const t=e.target.closest("button,a");if(!t)return;const d=t.dataset;
+if(d.add)add(d.add);
+if(d.q){qn=Math.max(1,qn+ +d.q);$("#qn").textContent=qn}
+if(d.addq){add(d.addq,qn);qn=1}
+if(d.buy){add(d.buy,qn);qn=1;location.hash="checkout"}
+if(d.ci){const c=cart.get(),p=P().find(x=>x.id==d.ci);c[d.ci]=Math.max(1,Math.min(c[d.ci]+ +d.d,p.stock));cart.set(c);route()}
+if(d.rm){const c=cart.get();delete c[d.rm];cart.set(c);route()}
+if(t.id=="applyc"){toast("Chưa có mã giảm giá hợp lệ")}
+if(t.id=="cartBtn")location.hash="cart";
+if(t.id=="menuBtn")$("#nav").classList.toggle("open")});
+document.addEventListener("input",e=>{if(["q","fc","fs"].includes(e.target.id))list();const t=e.target;if(t.dataset.pf){const ps=P(),p=ps.find(x=>x.id==t.dataset.id);p[t.dataset.pf]=t.value===""?null:+t.value;store.set("cc_products",ps)}});
+document.addEventListener("change",e=>{if(e.target.id=="fc"||e.target.id=="fs")list()});
+document.addEventListener("submit",e=>{e.preventDefault();const f=e.target,d=Object.fromEntries(new FormData(f));if(d.website){return}
+if(f.id=="cf"){toast("Chưa có máy chủ nhận tin nhắn. Vui lòng liên hệ qua kênh khác khi có thông tin.");return}
+if(f.id=="co"){const c=cart.get(),ps=P();let total=0,items=[];for(const id in c){const p=ps.find(x=>x.id==id);if(!p||p.stock<c[id]){toast("Sản phẩm không đủ tồn kho");return}total+=p.price*c[id];items.push(p.name+" ×"+c[id]);p.stock-=c[id]}
+const id="CC"+Date.now().toString(36).toUpperCase();const o=store.get("cc_orders",[]);o.unshift({id,date:new Date().toLocaleString("vi-VN"),name:d.name,phone:d.phone,email:d.email,addr:d.addr,note:d.note,pay:d.pay,items:items.join("; "),total});store.set("cc_orders",o);store.set("cc_products",ps);cart.set({});
+$("#app").innerHTML=`<section><div class="wrap"><h1 style="font-size:2.4rem">Đã ghi nhận đơn ${esc(id)}</h1><p>Tổng: ${vnd(total)} (chưa gồm phí vận chuyển). Đơn mới được lưu trên trình duyệt này, chưa gửi tới người bán. ${d.pay=="BANK"?"Chưa thu tiền: thông tin chuyển khoản chưa có.":"Thanh toán khi nhận hàng."}</p><a class="btn" href="#shop">Tiếp tục mua sắm</a></div></section>`}});
+addEventListener("hashchange",route);upd();route();
+</script>
+</body>
+</html>
